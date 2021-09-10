@@ -29,7 +29,7 @@ $popover-shadow-color: var(--px-popover-shadow-color, black);
 $popover-max-width: var(--px-popover-max-width, 300px);
 $popover-padding: var(--px-popover-padding, 20px);
 $popover-z-index: var(--px-popover-z-index, 103);
-$carat-size: 7.5px;
+$carat-size: 4.5px;
 
 #dropdown {
   z-index: $popover-z-index;
@@ -42,7 +42,7 @@ $carat-size: 7.5px;
   border: 1px solid $popover-border-color;
   background: $popover-background-color;
   color: $popover-text-color;
-  box-shadow: 0px 1px 3px 0px $popover-shadow-color;
+  box-shadow: 0px 3px 3px 0px $popover-shadow-color;
   h5 {
     margin: 0px 0px 20px 0px;
   }
@@ -51,98 +51,113 @@ $carat-size: 7.5px;
     word-wrap: break-word;
   }
 }
+
 //carat on the left
 #popover.right:after, #popover.right:before {
-  right: calc(100% - 1px);
-  top: var(--carat-top);
-  bottom: var(--carat-bottom);
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
+  content: "";
   position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: 0;
+  bottom: var(--carat-bottom);
+  top: var(--carat-top);
+  left: 1px;
+  box-sizing: border-box;
+
+  border-color: transparent transparent $popover-background-color $popover-background-color;
+  border: $carat-size solid $popover-background-color;
+
+  transform-origin: 0 0;
+  transform: rotate(45deg);
 }
+
 #popover.right:after {
-  border-color: rgba(136, 183, 213, 0);
-  border-right-color: $popover-background-color;
-  border-width: $carat-size;
-  margin-top: -$carat-size;
+  z-index: -10;
+  box-shadow: 0 3px 3px 0 $popover-shadow-color;
 }
+
 #popover.right:before {
-  border-color: rgba(194, 225, 245, 0);
-  border-right-color: $popover-border-color;
-  border-width: $carat-size + 1px;
-  margin-top: -$carat-size - 1px;
+  z-index: 10;
 }
 
 //carat on the right
 #popover.left:after, #popover.left:before {
-  left: calc(100% - 1px);
-  top: var(--carat-top);
-  bottom: var(--carat-bottom);
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
+  content: "";
   position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: 0;
+  bottom: var(--carat-bottom);
+  top: var(--carat-top);
+  right: 1px;
+  box-sizing: border-box;
+
+  border-color: transparent transparent $popover-background-color $popover-background-color;
+  border: $carat-size solid $popover-background-color;
+
+  transform-origin: 100% 0;
+  transform: rotate(-45deg);
 }
 #popover.left:after {
-  border-color: rgba(136, 183, 213, 0);
-  border-left-color: $popover-background-color;
-  border-width: $carat-size;
-  margin-top: -$carat-size;
+  z-index: -10;
+  box-shadow: 0 3px 3px 0 $popover-shadow-color;
 }
 #popover.left:before {
-  border-color: rgba(194, 225, 245, 0);
-  border-left-color: $popover-border-color;
-  border-width: $carat-size + 1px;
-  margin-top: -$carat-size - 1px;
+  z-index: 10;
 }
 
 //carat on top
 #popover.bottom:after, #popover.bottom:before {
-  left: 50%;
-  bottom: calc(100% - 1px);
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
+  content: "";
   position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: 0;
+  left: calc(50% - 2.5px);
+  box-sizing: border-box;
+  top: 1px;
+
+  border-color: transparent transparent $popover-background-color $popover-background-color;
+  border: $carat-size solid $popover-background-color;
+
+  transform-origin: 100% 0;
+  transform: rotate(45deg);
 }
 #popover.bottom:after {
-  border-color: rgba(136, 183, 213, 0);
-  border-bottom-color: $popover-background-color;
-  border-width: $carat-size;
-  margin-left: -$carat-size;
+  z-index: -10;
+  box-shadow: -3px -3px 3px 0 $popover-shadow-color;
 }
 #popover.bottom:before {
-  border-color: rgba(194, 225, 245, 0);
-  border-bottom-color: $popover-border-color;
-  border-width: $carat-size + 1px;
-  margin-left: -$carat-size - 1px;
+  z-index: 10;
+}
+
+#popover.bottom {
+  box-shadow: 0 -3px 3px 0 $popover-shadow-color;
 }
 
 //carat on bottom
 #popover.top:after, #popover.top:before {
-  left: 50%;
-  top: calc(100% - 1px);
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
+  content: "";
   position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: 0;
+  left: calc(50% - 8.5px);
+  box-sizing: border-box;
+  bottom: -1px;
+
+  border-color: transparent transparent $popover-background-color $popover-background-color;
+  border: $carat-size solid $popover-background-color;
+
+  transform-origin: 100% 0;
+  transform: rotate(-45deg);
 }
 #popover.top:after {
-  border-color: rgba(136, 183, 213, 0);
-  border-top-color: $popover-background-color;
-  border-width: $carat-size;
-  margin-left: -$carat-size;
+  z-index: -10;
+  box-shadow: -3px 3px 3px 0 $popover-shadow-color;
 }
 #popover.top:before {
-  border-color: rgba(194, 225, 245, 0);
-  border-top-color: $popover-border-color;
-  border-width: $carat-size + 1px;
-  margin-left: -$carat-size - 1px;
+  z-index: 10;
 }
 
 // Trumps

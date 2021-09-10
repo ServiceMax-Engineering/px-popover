@@ -297,17 +297,17 @@ Custom property | Description
         var targetRect = this._target.getBoundingClientRect();
         if (this.verticalAlign === 'top') {
           this.updateStyles({
-            '--carat-top': Math.round( targetRect.height / 2) + 'px',
+            '--carat-top': Math.round( targetRect.height / 2 - 7) + 'px',
             '--carat-bottom': undefined,
           });
         } else if (this.verticalAlign === 'bottom') {
           this.updateStyles({
             '--carat-top': undefined,
-            '--carat-bottom': Math.round( targetRect.height / 2 - 7.5) + 'px',
+            '--carat-bottom': Math.round( targetRect.height / 2 - 0.5) + 'px',
           });
         } else {
           this.updateStyles({
-            '--carat-top': '50%',
+            '--carat-top': 'calc(50% - 7px)',
             '--carat-bottom': undefined,
           });
         }

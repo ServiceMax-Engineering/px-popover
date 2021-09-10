@@ -1,3 +1,7 @@
+v2.3.3
+==================
+* Refine the shadow style
+
 v2.3.2
 ==================
 * Make it support specify verticalAlign value
